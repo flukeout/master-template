@@ -98,7 +98,7 @@ a {
 }
 
 
-// The main conent wrapper
+// The main content wrapper
 
 article {
   max-width: 750px;
@@ -114,6 +114,12 @@ article {
   left: -12px;
   width: 175px;
   margin-bottom: 10px;
+
+  a {
+    img {
+      max-width: 100%;
+    }
+  }
 
   a:hover {
     background: none;
@@ -289,16 +295,19 @@ nav {
 
     &:after {
       content: "";
-      background: ~"url(images/nav-selected-indicator.svg)";
-      background-position: top left;
+      background-color: @primary-darkest;
+      background-image: ~"url(/shared/images/nav-selected-indicator-mask.svg)";
+      background-position: right;
       background-repeat: no-repeat;
-      background-size: contain;
+
+      background-size: 15px;
       height: 100%;
-      width: 20px;
+      width: 15px;
       position: absolute;
       top: 0;
-      right: 0;
-      opacity: 0;
+      right: 0px;
+      opacity: 1;
+      width: 0px;
       transition: all .075s ease-out;
     }
 
@@ -306,8 +315,8 @@ nav {
       color: rgba(255,255,255,1);
 
       &:after {
-        opacity: 1;
-        right: -20px;
+        width: 15px;
+        right: -15px;
       }
 
     }
