@@ -30,7 +30,7 @@ $(document).ready(function(){
     autoscrolling = true;
 
     $('html, body').animate({
-      scrollTop: $(section).offset().top
+        scrollTop: $(section).offset().top
     }, 500, function(){
       autoscrolling = false;
       window.location.hash = section;
@@ -79,16 +79,37 @@ function scroll(){
 }
 
 
-// Builds HTML version of the markdown content in content.md
+var schema = {
+
+}
+
+// var sections = ["Summary","Details"];
+// var detailsSections = ["Format","Target Audience","Materials"];
+
+var sectionName;
+
 
 function buildContent(html){
 
-  $(html).each(function(i,el){
+  var append;
+  var contentSection;
 
+  $(html).each(function(i,el){
+    append = true;
     // Loops through all of the elements in the page
+
     if($(el).prop("nodeName")){
 
-      $("article").append($(el));
+      // Adds elements to the Nav if they're h1 or h2 headings
+      if($(el).prop("nodeName") == "H4") {
+        var heading = $(el).text();
+
+        sectionName = heading.replace(/ /g, "-").toLowerCase();
+
+        if($("section." + sectionName).length == 0) {
+          $("article").append("<section class='"+sectionName+"'>");
+        }
+      }
 
       // Adds elements to the Nav if they're h1 or h2 headings
       if($(el).prop("nodeName") == "H1") {
@@ -103,7 +124,20 @@ function buildContent(html){
         $(el).attr("id",id);
         $("nav").append("<a href='#"+id+"'>"+text+"</a>");
       }
+
+      if(append) {
+        if(sectionName) {
+          $("article section." + sectionName).append($(el));
+        } else {
+          $("article").append($(el));
+        }
+
+
+      }
+
     }
+
+
   });
 
 }
