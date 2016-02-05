@@ -31,7 +31,7 @@ A “persona” is a tool commonly used in the design world, to help create prod
 
 Personas may be composites of several real-world users. The power of the persona is in its specificity; a good persona feels real, and helps a designer (or project lead) put their own perspectives aside and empathize with the needs and motivations of users.
 
-> ####Example - Sample Persona
+> ####Sample Persona
 >
 > Rashid is a PhD student in astronomy at a university in Southern England. He’s outgoing and a snappy dresser, favoring skinny jeans and colorful cardigans. He lives in on-campus housing and after a long day at the lab he usually rushes home to see his wife and infant son.
 >
