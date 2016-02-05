@@ -87,7 +87,7 @@ var schema = {
 // var detailsSections = ["Format","Target Audience","Materials"];
 
 var sectionName;
-
+var sectionElements = ["H1","H2","H3","H4","H5","H6"];
 
 function buildContent(html){
 
@@ -101,7 +101,9 @@ function buildContent(html){
     if($(el).prop("nodeName")){
 
       // Adds elements to the Nav if they're h1 or h2 headings
-      if($(el).prop("nodeName") == "H4") {
+      var nodeName = $(el).prop("nodeName");
+
+      if(sectionElements.indexOf(nodeName) > -1) {
         var heading = $(el).text();
 
         sectionName = heading.replace(/ /g, "-").toLowerCase();
@@ -119,8 +121,8 @@ function buildContent(html){
 
       if($(el).prop("nodeName") == "H2") {
         var text = $(el).text();
-        var id = text.replace(" ","");
-        var id = id.toLowerCase();
+        var id = text.replace(/\s+/g, '-').toLowerCase();
+
         $(el).attr("id",id);
         $("nav").append("<a href='#"+id+"'>"+text+"</a>");
       }
@@ -131,13 +133,8 @@ function buildContent(html){
         } else {
           $("article").append($(el));
         }
-
-
       }
-
     }
-
-
   });
 
 }

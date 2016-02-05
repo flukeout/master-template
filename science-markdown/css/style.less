@@ -22,3 +22,168 @@
     display: none;
   }
 }
+
+article ol, article ul {
+  padding-left: 22px;
+}
+
+
+.steps-to-complete > ol {
+  margin: 30px 0 50px 0;
+  padding: 0 0 0 60px;
+
+  h3 {
+    font-weight: 500;
+    font-size: 22px;
+    margin: 0 0 6px 0;
+    padding: 0;
+    color: @primary-darkest;
+  }
+
+  h4 {
+    font-size: 15px;
+    color: #273d44;
+    font-style: normal;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  > ol {
+    padding: 0;
+  }
+
+  > li {
+    list-style-type: none;
+    position: relative;
+    padding: 0 0 10px 0;
+    margin: 0 0 40px 0;
+
+    &:not(:last-child):after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      height: 2px;
+      background: @primary-light;
+      width: 35%;
+      left: ~"calc(22% + 50px)";
+    }
+
+    &:last-child {
+      border: none;
+      margin: 0;
+
+      :last-child {
+        margin: 0;
+      }
+    }
+
+    &:before {
+      position: absolute;
+      left: -60px;
+      top: -10px;
+      font-weight: 400;
+      font-size: 22px;
+      color: @primary-darkest;
+      border: solid 2px @primary-light;
+      height: 43px;
+      width: 43px;
+      text-align: center;
+      box-sizing: border-box;
+      padding-top: 9px;
+      border-radius: 0 50% 50% 50%;
+    }
+
+    // Creates fancy number elements for the Steps-to-Complete list
+    .make-steps(@counter) when (@counter > 0) {
+      .make-steps((@counter - 1));
+      &:nth-child(@{counter}):before {
+        content: ~"'"@counter~"'";
+      }
+    }
+    .make-steps(10);
+  }
+
+  // Lists within the steps to complete list
+  ul, ol {
+    padding: 0;
+
+    li {
+      list-style-type: none;
+
+      &:before {
+        display: none;
+      }
+
+      h4 {
+        font-size: 15px;
+        color: @text-dark;
+        font-style: normal;
+        font-weight: 500;
+        margin: 0;
+      }
+    }
+  }
+
+}
+
+
+blockquote {
+
+  margin: 35px 0 40px 0;
+  background: @primary-lightest;
+  color: @primary-darkest;
+  padding: 30px 35px;
+  position: relative;
+
+  h4 {
+    width: 25%;
+    padding: 0 0 2px 0;
+    top: 30px;
+    left: 30px;
+    position: absolute;
+    font-size: 20px;
+    font-style: italic;
+
+    color: @primary-darkest;
+  }
+
+  p {
+    color: @primary-darkest;
+    // margin-left: 40%;
+    position: relative;
+    margin: 0 0 0 40%;
+    padding-bottom: 30px;
+
+    &:after {
+      content: "";
+      width: 2px;
+      left: -30px;
+      top: 0;
+      height: ~"calc(100% - 0px)";
+      position: absolute;
+      background: @primary-light;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+  }
+
+  .content {
+    flex: 2;
+    color: inherit;
+    position: relative;
+    padding-left: 22px;
+
+
+    p:last-child {
+      margin: 0;
+    }
+
+    * {
+      color: inherit;
+    }
+  }
+
+}

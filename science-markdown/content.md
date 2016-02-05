@@ -23,21 +23,19 @@ Open science project leads and Mozilla Study Group leads seeking to attract and 
 * Pen & Paper
 * A way to take notes
 
-
 ##Introduction
 
-Your open project needs users and contributors, but how can you find them,get them involved, and keep them engaged and active in your community?One way is by creating and using "personas" and "pathways" to help you.
+Your open project needs users and contributors, but how can you find them, get them involved, and keep them engaged and active in your community? One way is by creating and using "personas" and "pathways" to help you.
 
 A “persona” is a tool commonly used in the design world, to help create products and experiences that work for real world users (aka “user-centered design”). The persona is an imaginary user, based on real-world observations and understandings of actual potential or current users. The persona becomes real to the designer, and is used as a tool to test ideas and experiences (for example, a designer might ask “Would our user persona, Rodrigo, who is an avid photographer and technophile but also an introvert who’s protective of his private information, like feature x of our social media platform?”).
 
-
 Personas may be composites of several real-world users. The power of the persona is in its specificity; a good persona feels real, and helps a designer (or project lead) put their own perspectives aside and empathize with the needs and motivations of users.
 
-####Example - Sample Persona
-
-Rashid is a PhD student in astronomy at a university in Southern England. He’s outgoing and a snappy dresser, favoring skinny jeans and colorful cardigans. He lives in on-campus housing and after a long day at the lab he usually rushes home to see his wife and infant son.
-
-Rashid took an intro Java programming course long ago, as an undergrad, but his research now demands Python skills. He attended a two-day Software Carpentry workshop at his institution.
+> ####Example - Sample Persona
+>
+> Rashid is a PhD student in astronomy at a university in Southern England. He’s outgoing and a snappy dresser, favoring skinny jeans and colorful cardigans. He lives in on-campus housing and after a long day at the lab he usually rushes home to see his wife and infant son.
+>
+> Rashid took an intro Java programming course long ago, as an undergrad, but his research now demands Python skills. He attended a two-day Software Carpentry workshop at his institution.
 
 ###About Pathways
 
@@ -60,12 +58,12 @@ As you create your pathway, ask yourself, what needs to be in place to move Rash
 
 ##Steps to Complete
 
-
 1. ###Brainstorm
 
    In groups of two, read through the following questions. Take notes! Each person should answer the question in caps in the time provided. Use a timer to keep time for each person.
 
-   #####Who is the person you most need in your community or on your project?
+   ####Who is the person you most need in your community or on your project?
+
    3 minutes each
 
   Create a persona for this user. Think of the skill set or attributes you want,but ALSO give them a name, age, a place to live, life circumstances (single, married? family? student? mid-career?), what they like and don’t like, etc.This may seem superfluous, but the more real the persona feels to you, themore useful they’ll be. Have fun with this!
@@ -97,14 +95,11 @@ As you create your pathway, ask yourself, what needs to be in place to move Rash
 ##Glossary
 
 Persona
-: A fictional user, based on real-world observations of actual or potential users. personas are used
-  to test and shape the design of a product or experience, so that the final design responsive
-  and relevant to user needs.
+: A fictional user, based on real-world observations of actual or potential users. personas are used to test and shape the design of a product or experience, so that the final design responsive
+and relevant to user needs.
 
 Another Term
-: A fictional user, based on real-world observations of actual or potential users. personas are used
-  to test and shape the design of a product or experience, so that the final design responsive
-  and relevant to user needs.
+: A fictional user, based on real-world observations of actual or potential users. personas are used to test and shape the design of a product or experience, so that the final design responsive and relevant to user needs.
 
 ##Follow-up Resources & Materials
 
