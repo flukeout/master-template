@@ -79,13 +79,6 @@ function scroll(){
 }
 
 
-var schema = {
-
-}
-
-// var sections = ["Summary","Details"];
-// var detailsSections = ["Format","Target Audience","Materials"];
-
 var sectionName;
 var sectionElements = ["H1","H2","H3","H4","H5","H6"];
 
@@ -136,5 +129,15 @@ function buildContent(html){
       }
     }
   });
+
+
+  formatContent();
+
+}
+
+
+function formatContent(){
+
+  console.log("formatting");
 
 }

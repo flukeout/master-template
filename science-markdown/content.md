@@ -81,27 +81,25 @@ As you create your pathway, ask yourself, what needs to be in place to move Rash
 
 
 3. ###Plan a Pathway
+
   30 minutes
 
-  Using the structure above, describe a pathway for your persona. What are the steps through
-  this project? What could stumbling blocks for user? What skills, info, or resources are
-  missing that they”ll need to better engage with the project? What kinds of things might
-  drive them away from your project?
+  Using the structure above, describe a pathway for your persona. What are the steps through this project? What could stumbling blocks for user? What skills, info, or resources are missing that they”ll need to better engage with the project? What kinds of things might drive them away from your project?
 
 4. ###List your Solutions
 
   For each potential stumbling block or difficulty your user might encoutner, list a solution that you'll work into your design of your grop or project.
 
-##Glossary
+##Glossssary
 
-Persona
+**Persona**
 : A fictional user, based on real-world observations of actual or potential users. personas are used to test and shape the design of a product or experience, so that the final design responsive
 and relevant to user needs.
 
-Another Term
+**Another Term**
 : A fictional user, based on real-world observations of actual or potential users. personas are used to test and shape the design of a product or experience, so that the final design responsive and relevant to user needs.
 
-##Follow-up Resources & Materials
+##Follow-up Resources and Materials
 
 * You may find it useful to review this handout on the the creation of your Contributing.md file in light of your new understanding of your users.
 * You may also want to revise your proejct description to better appeal to your users, using this handout.
