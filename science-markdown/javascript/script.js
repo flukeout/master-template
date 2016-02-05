@@ -80,7 +80,7 @@ function scroll(){
 
 
 var sectionName;
-var sectionElements = ["H1","H2","H3","H4","H5","H6"];
+var sectionElements = ["H2","H3","H4","H5","H6"];
 
 function buildContent(html){
 
@@ -137,7 +137,12 @@ function buildContent(html){
 
 
 function formatContent(){
+  $("h1").after("<section class='meta-information'></section>");
+  $(".meta-information").append($("section.summary"));
+  $(".meta-information").append($("section.details"));
 
-  console.log("formatting");
+  $(".meta-information").after("<section class='presentation-details'></section>");
+  $(".presentation-details").append($("section.format,section.target-audience,section.materials"));
+
 
 }
