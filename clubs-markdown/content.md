@@ -37,27 +37,27 @@ Provide a prompt and have participants write answers/feedback on a post-it note,
 
 It encourages teamwork, provides opportunity for great discussion, and can surface opportunities to build a stronger sense of community within your group dynamic. These can be especially fun when hosting a larger event that includes outside community members.
 
-* [Studio.code.org](Studio.code.org) offers many “unplugged” activities for those with no prior programming experience.</li>
+* [Studio.code.org](Studio.code.org) offers many “unplugged” activities for those with no prior programming experience.
 * [Teach.mozilla.org](Teach.mozilla.org) offers 19 activities in this lo-fi, no-fi teaching kit.
 
 ###Group Hack/Remix Challenges
 
 When you do have connectivity, give these a try. Whatever tool or challenge you decide to use, pair your participants into teams to work together to achieve a goal. Add a bit of playful competition between teams by adding time restrictions, small prizes, or bragging rights.
 
-* [Thimble - Interactive Postcard Remix](Thimble - Interactive Postcard Remix)
-* [Create a WebMaker Project](Create a WebMaker Project)
-* [X-Ray Goggles - Hack the News activity](X-Ray Goggles - Hack the News activity)
+* [Thimble - Interactive Postcard Remix](example.com)
+* [Create a WebMaker Project](example.com)
+* [X-Ray Goggles - Hack the News activity](example.com)
 
 ## Resources
 
 Want even more ideas and tools for mixing your Mozilla Club and afterschool program? Here are a few resources to help you dig further.
 
-* [Teach Like Mozilla - Our Values](Teach Like Mozilla - Our Values)
-* [Discourse Community Forum](Discourse Community Forum)
-* Hive NYC training program for educators and educator ideas for running activities in the school in this outcomes blogpost
+* [Teach Like Mozilla - Our Values](example.com)
+* [Discourse Community Forum](example.com)
+* Hive NYC training program for educators and educator ideas for running activities in the school in [this outcomes blogpost](example.com)
 
 ## Contact
 
 * Email Mozilla’s Club expert Amira Dhalla [amira@mozillafoundation.org](amira@mozillafoundation.org) with any questions about Mozilla Clubs
 * Tweet us anytime [@MozTeach](@MozTeach) or using [#teachtheweb](#teachtheweb) or [#MozillaClubs](#MozillaClubs)
-* Is your Mozilla Club doing an awesome job of retaining and growing the community? [Share your story with us!](Share your story with us!)
+* Is your Mozilla Club doing an awesome job of retaining and growing the community? [Share your story with us!](example.com)
