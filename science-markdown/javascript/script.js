@@ -106,12 +106,6 @@ function buildContent(html){
         }
       }
 
-      // Adds elements to the Nav if they're h1 or h2 headings
-      if($(el).prop("nodeName") == "H1") {
-        $("nav").append("<a class='selected' href='#introduction'>Introduction</a>");
-        $(el).attr("id","introduction");
-      }
-
       if($(el).prop("nodeName") == "H2") {
         var text = $(el).text();
         var id = text.replace(/\s+/g, '-').toLowerCase();
@@ -130,6 +124,7 @@ function buildContent(html){
     }
   });
 
+  $("nav a:first-child").addClass("selected");
 
   formatContent();
 
