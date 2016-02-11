@@ -1,7 +1,9 @@
 // Main colors
-@primary-darkest: #263E7B;    // Navigation selected state
-@primary-dark: #284385;       // Navigation hover state
-@primary: #2B488E;            // Section headings and side-bar background
+@primary: #F09C3C;            // Section headings and side-bar background
+
+@primary-darkest:  darken(@primary, 10%); // Selected state in nav
+@primary-dark:  darken(@primary, 5%);     // Hover state in nav
+
 @primary-light: #CAE8FA;      // Borders & horizontal rules
 @primary-lightest: #E0F3FF;   // Background for Example
 
@@ -37,6 +39,16 @@ aside nav {
   margin-top: 25px;
 }
 
+h1 {
+  margin-top: 20px;
+}
+
+
+h4 {
+  margin-bottom: 23px;
+}
+
+// What is this....
 article {
   > ul, ol {
     padding-left: 22px;
@@ -46,4 +58,11 @@ article {
       line-height: 150%;
     }
   }
+}
+
+sup a {
+  color: inherit;
+  font-size: .8em;
+  text-decoration: none;
+  padding: 2px 4px;
 }
