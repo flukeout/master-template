@@ -66,10 +66,7 @@ article {
   }
 }
 
-
-
-
-.not(.footnotes) sup {
+sup {
   position: relative;
   width: 17px;
   margin-left: 2px;
@@ -107,6 +104,13 @@ article {
   }
 }
 
+.footnotes sup {
+  &:before {
+    display: none;
+  }
+
+}
+
 .example {
   display: block;
   font-weight: 300;
@@ -130,6 +134,12 @@ article {
 
   .jump {
     text-decoration: none;
+    opacity: .6;
+
+    &:hover {
+      opacity: .8;
+      background: none;
+    }
 
     &:after {
       font-family: "FontAwesome";
