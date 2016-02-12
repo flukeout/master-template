@@ -4,8 +4,8 @@
 @primary-darkest:  darken(@primary, 10%); // Selected state in nav
 @primary-dark:  darken(@primary, 5%);     // Hover state in nav
 
-@primary-light: #CAE8FA;      // Borders & horizontal rules
-@primary-lightest: #E0F3FF;   // Background for Example
+@primary-light: lighten(@primary, 35%);      // Borders & horizontal rules
+@primary-lightest: lighten(@primary, 35%);   // Background for Example
 
 // Links
 @link-color: #089970;         // Link text
@@ -45,10 +45,9 @@ h1 {
 
 
 h4 {
-  margin-bottom: 23px;
+  margin-bottom: 17px;
 }
 
-// What is this....
 article {
   > ul, ol {
     padding-left: 22px;
@@ -60,9 +59,69 @@ article {
   }
 }
 
-sup a {
-  color: inherit;
-  font-size: .8em;
-  text-decoration: none;
-  padding: 2px 4px;
+.not(.footnotes) sup {
+  position: relative;
+  width: 17px;
+  margin-left: 2px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    left: 0px;
+    top: 5px;
+    border-radius: 50%;
+    background: @link-background;
+  }
+
+  &:hover {
+    &:before {
+      background: darken(@link-background, 5%);
+    }
+  }
+
+  a {
+    color: @link-color;
+    display: inline-block;
+    font-size: .6em;
+    width: 16px;
+    text-decoration: none;
+    padding: 0;
+    text-align: center;
+    position: relative;
+
+    &:hover {
+      background: transparent;
+    }
+  }
+}
+
+.example {
+  display: block;
+  font-weight: 300;
+
+  color: @primary;
+
+  * {
+    color: inherit;
+  }
+
+}
+
+
+.footnotes {
+  font-size: .9em;
+  padding-top: 20px;
+  margin: 60px 0 0 0;
+  border-top: solid 2px @primary-light;
+
+  .jump {
+    text-decoration: none;
+
+    &:after {
+      font-family: "FontAwesome";
+      content: "\f01b";
+    }
+  }
 }
