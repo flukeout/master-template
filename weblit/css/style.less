@@ -49,6 +49,24 @@ h1 {
   font-size: 38px;
 }
 
+h2 {
+
+  position: relative;
+  padding-top: 30px;
+
+  &:before {
+    content:"";
+    position: absolute;
+    height: 2px;
+    top: 0;
+    width: 50%;
+    background: darken(@primary-light, 5%);
+    left: 25%;
+
+
+  }
+}
+
 
 h4 {
   margin-bottom: 5px;
@@ -108,7 +126,6 @@ sup {
   &:before {
     display: none;
   }
-
 }
 
 .example {
@@ -125,9 +142,8 @@ sup {
 
 }
 
-
 .footnotes {
-  font-size: .9em;
+  font-size: .8em;
   padding-top: 20px;
   margin: 60px 0 0 0;
   border-top: solid 2px @primary-light;

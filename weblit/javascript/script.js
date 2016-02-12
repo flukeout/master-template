@@ -5,7 +5,7 @@
 
 var sections = [];
 var articleSections = $();
-var autoscrolling = true;
+var autoscrolling = false;
 var docHeight, windowHeight;
 var scrollingTimeout;
 var scrollSpeed = 500;
@@ -25,9 +25,10 @@ $(document).ready(function(){
     autoscrolling = true;
 
     window.clearTimeout(scrollingTimeout);
+
     scrollingTimeout = window.setTimeout(function(){
       autoscrolling = false;
-    },scrollSpeed + 100);
+    },600);
 
     $('html, body').animate({
       scrollTop: $(section).offset().top
@@ -46,11 +47,13 @@ $(document).ready(function(){
     }
   });
 
+
+
   var jam = $("*[id]");
   $(jam).each(function(i,el){
     var id = $(el).attr("id");
     id = id.toLowerCase();
-    if(sections.indexOf(id) > -1) {
+    if(sections.indexOf("#" + id ) > -1) {
       articleSections.push(el);
     }
   });
@@ -67,6 +70,8 @@ $(document).ready(function(){
 // a user scrolls to.
 
 function scroll(){
+
+  console.log("scroll");
 
   var windowTop = $(window).scrollTop();
 
@@ -88,12 +93,12 @@ function scroll(){
 
 function selectSection(id){
   $("nav .selected").removeClass("selected");
-  $("nav a[href="+id+"]").addClass("selected");
+  $("nav a[href=#"+id+"]").addClass("selected");
 }
 
 function checkHash(){
   var hash = window.location.hash;
   if(hash){
-    selectSection(hash);
+    selectSection(hash.replace("#",""));
   }
 }
