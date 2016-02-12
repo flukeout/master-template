@@ -1,11 +1,4 @@
-// Main colors
-@primary: #F09C3C;            // Section headings and side-bar background
-
-@primary-darkest:  darken(@primary, 10%); // Selected state in nav
-@primary-dark:  darken(@primary, 5%);     // Hover state in nav
-
-@primary-light: lighten(@primary, 35%);      // Borders & horizontal rules
-@primary-lightest: lighten(@primary, 35%);   // Background for Example
+@primary: #F09C3C;                           // Base color & sidebar background
 
 // Links
 @link-color: #089970;         // Link text
@@ -48,7 +41,6 @@ h1 {
 }
 
 h2 {
-
   position: relative;
   padding-top: 30px;
 
@@ -60,8 +52,6 @@ h2 {
     width: 50%;
     background: darken(@primary-light, 5%);
     left: 25%;
-
-
   }
 }
 
@@ -126,18 +116,17 @@ sup {
   }
 }
 
+//Should we make this an inline example........
+
 .example {
   display: block;
   font-weight: 300;
   padding: 17px 20px;
   margin-top: 10px;
 
-  color: @primary;
-
   * {
     color: inherit;
   }
-
 }
 
 .footnotes {

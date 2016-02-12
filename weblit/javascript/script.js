@@ -6,13 +6,10 @@
 var sections = [];
 var articleSections = $();
 var autoscrolling = false;
-var docHeight, windowHeight;
-var scrollingTimeout;
-var scrollSpeed = 500;
+var docHeight, windowHeight, scrollingTimeout;
+var scrollSpeed = 500;  // Time (in ms) it takes to scroll to a new section when using the nav
 
 $(document).ready(function(){
-
-  checkHash();
 
   windowHeight = $(window).height();
   docHeight = $("body").height();
@@ -28,7 +25,7 @@ $(document).ready(function(){
 
     scrollingTimeout = window.setTimeout(function(){
       autoscrolling = false;
-    },600);
+    },parseInt(scrollSpeed + 100));
 
     $('html, body').animate({
       scrollTop: $(section).offset().top
@@ -47,8 +44,6 @@ $(document).ready(function(){
     }
   });
 
-
-
   var jam = $("*[id]");
   $(jam).each(function(i,el){
     var id = $(el).attr("id");
@@ -64,15 +59,13 @@ $(document).ready(function(){
     }
   });
 
+  checkHash();
+
 });
 
-// Updates the nav depending on what part of the article
-// a user scrolls to.
+// Updates the nav depending on what part of the article a user scrolls to.
 
 function scroll(){
-
-  console.log("scroll");
-
   var windowTop = $(window).scrollTop();
 
   articleSections.each(function(i,el){
@@ -92,8 +85,17 @@ function scroll(){
 }
 
 function selectSection(id){
+
+  if(sections.indexOf("#" + id) < 0){
+    id = "introduction";
+  }
+
   $("nav .selected").removeClass("selected");
   $("nav a[href=#"+id+"]").addClass("selected");
+
+  if(window.history.replaceState) {
+    window.history.replaceState(null, null, "#" + id);
+  }
 }
 
 function checkHash(){
