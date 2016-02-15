@@ -1,17 +1,21 @@
-// Navigation 1.0 ALPHA
+// Template Things, this code...
 //
-// * Highlights the appropriate element in the navigation when scrolling through the page
-// * Scrolls to appropriate section of the page when the navigation is clicked
+// * Takes the content from the content.md file in the same folder and
+//   * Converts it into HTML
+//   * Creates a side-bar navigation based on the h1 and h2 elements in that content
+// * Highlights the appropriate element in the navigation when a user scrolls through the page
+//   * Also changes the hash in the address bar to match the current section
+// * Scrolls to appropriate section of the page when a user clicks an item in the navigation
+// * When the page first loads, checks to see if there is a hash in the address bar and
+//   loads the appropriate section if so
 
 var sections = [];
 var articleSections = $();
 var autoscrolling = false;
-var converter;
-var docHeight, windowHeight, scrollingTimeout;
-var scrollSpeed = 500;  // Time (in ms) it takes to scroll to a new section when using the nav
+var docHeight, windowHeight, scrollingTimeout, converter;
+var scrollSpeed = 500;  // Time (in ms) it takes to scroll to a new section when a user clicks the navigation
 
 $(document).ready(function(){
-
   windowHeight = $(window).height();
 
   converter = new Markdown.Converter();
@@ -23,7 +27,6 @@ $(document).ready(function(){
     $(".selected").removeClass("selected");
     $(this).addClass("selected");
     var section = $(this).attr("href").replace("#","");
-
     scrollToSection(section);
     return false;
   });
@@ -33,9 +36,10 @@ $(document).ready(function(){
       scroll();
     }
   });
-
 });
 
+// Loads the h1 and h2 used for navigations into a javascript collection
+// and keeps track of them to help out with navigation.
 
 function prepareSections(){
   $("nav a").each(function(i,el){
@@ -46,8 +50,8 @@ function prepareSections(){
     }
   });
 
-  var jam = $("article *[id]");
-  $(jam).each(function(i,el){
+  var idThings = $("article *[id]");
+  $(idThings).each(function(i,el){
     var id = $(el).attr("id");
     id = id.replace("#","").toLowerCase();
     if(sections.indexOf(id) > -1) {
@@ -77,9 +81,10 @@ function scroll(){
   }
 }
 
-// Builds HTML version of the markdown content in content.md
+// Builds HTML based content in content.md
+
 function buildContent(html){
-  var pageTitle; // Will use the first h1 of the element
+  var pageTitle;
 
   $(html).each(function(i,el){
 
@@ -108,13 +113,13 @@ function buildContent(html){
   });
 
   prepareSections();
-
+  $("title").text(pageTitle);
   docHeight = $("body").height();
   checkHash();
-  console.log(pageTitle);
 }
 
-//Gets the markdown content in the same folder
+//Gets the content.md file found in the same folder
+
 function getContent(){
   $.ajax({
     url: "content.md",
@@ -127,7 +132,8 @@ function getContent(){
   });
 }
 
-//Selects a section in the nav
+// Highlights a section in the left-side navigation
+
 function selectSection(id){
   if(sections.indexOf(id) < 0){
     id = "introduction";
