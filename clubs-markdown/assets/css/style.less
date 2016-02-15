@@ -1,3 +1,6 @@
+// Main colors
+@primary: #2B488E;            // Section headings and side-bar background
+
 // Colors, based on the primary
 @primary-darkest: darken(@primary, 10%);     // Selected state in nav
 @primary-dark:  darken(@primary, 5%);        // Hover state in nav
@@ -308,7 +311,7 @@ nav {
     &:after {
       content: "";
       background-color: @primary-darkest;
-      background-image: ~"url(../shared/images/nav-selected-indicator-mask.svg)";
+      background-image: ~"url(../assets/images/nav-selected-indicator-mask.svg)";
       background-position: right;
       background-repeat: no-repeat;
 
@@ -523,6 +526,42 @@ article {
 
     li {
       margin-bottom: 8px;
+      line-height: 150%;
+    }
+  }
+}
+
+
+// The main content wrapper
+
+article {
+  .logo {
+    left: 0px;
+    width: 155px;
+    margin-top: 20px;
+  }
+}
+
+aside .image {
+  height: 190px;
+  width: 170px;
+  margin: 22px 0 30px 27px;
+  background-image: ~"url(../assets/images/mozilla-clubs-illustration.svg)";
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+aside nav {
+  margin-top: 25px;
+}
+
+article {
+  > ul, ol {
+    padding-left: 22px;
+
+    li {
+      margin-bottom: 14px;
       line-height: 150%;
     }
   }
