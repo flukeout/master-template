@@ -56,10 +56,9 @@ function prepareSections(){
   });
 }
 
-// Updates the nav depending on what part of the article a user scrolls to.
+// Updates the nav depending on what part of the article a user scrolls to
 
 function scroll(){
-
   var windowTop = $(window).scrollTop();
 
   articleSections.each(function(i,el){
@@ -78,9 +77,9 @@ function scroll(){
   }
 }
 
-
 // Builds HTML version of the markdown content in content.md
 function buildContent(html){
+  var pageTitle; // Will use the first h1 of the element
 
   $(html).each(function(i,el){
 
@@ -91,6 +90,9 @@ function buildContent(html){
 
       // Adds elements to the Nav if they're h1 or h2 headings
       if($(el).prop("nodeName") == "H1") {
+        if(!pageTitle) {
+          pageTitle = $(el).text();
+        }
         $("nav").append("<a class='selected' href='#introduction'>Introduction</a>");
         $(el).attr("id","introduction");
       }
@@ -106,8 +108,10 @@ function buildContent(html){
   });
 
   prepareSections();
+
   docHeight = $("body").height();
   checkHash();
+  console.log(pageTitle);
 }
 
 //Gets the markdown content in the same folder
@@ -125,8 +129,6 @@ function getContent(){
 
 //Selects a section in the nav
 function selectSection(id){
-  console.log("selectSection",id);
-
   if(sections.indexOf(id) < 0){
     id = "introduction";
   }
@@ -139,14 +141,17 @@ function selectSection(id){
   }
 }
 
+// Checks the hash value in the address bar and selects
+// the appropriate section in the nav
 
-// Checks the hash value in the address bar and selects the appropriate section in the nav
 function checkHash(){
   var hash = window.location.hash;
   if(hash){
     var section = hash.replace("#","");
-    selectSection(section);
-    scrollToSection(section);
+    if(sections.indexOf(section) > 0) {
+      selectSection(section);
+      scrollToSection(section);
+    }
   }
 }
 
@@ -155,7 +160,6 @@ function checkHash(){
 // b) a hash is found in the address bar when page loads
 
 function scrollToSection(section){
-
   autoscrolling = true;
   window.clearTimeout(scrollingTimeout);
 
@@ -168,5 +172,4 @@ function scrollToSection(section){
   }, scrollSpeed, function(){
     window.location.hash = section;
   });
-
 }
