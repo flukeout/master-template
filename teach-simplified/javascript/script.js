@@ -69,34 +69,39 @@ $(document).ready(function(){
 
 function navigate(hash){
 
-  //Hide all the steps & introduction
-  $("section#overview,section[id^=step]").css("opacity", 0);
-  setTimeout(function(){
-    $("section#overview,section[id^=step]").hide();
-  },200)
+  if($("nav a[href=" + hash + "].selected").length == 0){
 
+    //Hide all the steps & introduction
+    $("section#overview,section[id^=step]").css("opacity", 0);
+    setTimeout(function(){
+      $("section#overview,section[id^=step]").hide();
+    },200);
 
-  //Figure out what to show
-  if(hash.length > 0 && $("section" + hash).length > 0) {
-    $("body").attr("mode",hash);
-    navEl.find(".selected").removeClass("selected");
-    navEl.find("a[href="+hash+"]").addClass("selected");
-  } else {
-    hash = "#overview";
+    //Figure out what to show
+    if(hash.length > 0 && $("section" + hash).length > 0) {
+      $("body").attr("mode",hash);
+      navEl.find(".selected").removeClass("selected");
+      navEl.find("a[href="+hash+"]").addClass("selected");
+    } else {
+      hash = "#overview";
+    }
+
+    setTimeout(function(){
+      $("section"+hash).show();
+      $("section"+hash).css("opacity",0);
+      $("section"+hash).width(    $("section"+hash).width());
+      $("section"+hash).css("opacity",1);
+    },200);
+
+    if(window.history.replaceState) {
+      window.history.replaceState(null, null, hash);
+    } else {
+      window.location.replace(hash);
+    }
+
+    $(window).scrollTop(0);
+
   }
 
-  setTimeout(function(){
-    $("section"+hash).show();
-    $("section"+hash).css("opacity",0);
-    $("section"+hash).width(    $("section"+hash).width());
-    $("section"+hash).css("opacity",1);
-  },200)
 
-  if(window.history.replaceState) {
-    window.history.replaceState(null, null, hash);
-  } else {
-    window.location.replace(hash);
-  }
-
-  $(window).scrollTop(0);
 }
