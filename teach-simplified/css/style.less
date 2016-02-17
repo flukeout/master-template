@@ -94,14 +94,15 @@ body[mode*=step]{
     margin-top: 0;
 
     .clipping-mask {
-      transition: all .2s ease-out 1s;
-
-      opacity: 0;
+      transition: all .7s ease-out, transform .5s ease-out;
+      transform: scale(.8);
+      opacity: .3;
     }
 
     .attribution {
       opacity: 0;
-      transition: all .1s ease-out;
+      transform: scaleY(0);
+      transition: all .2s ease-out;
     }
 
   }
