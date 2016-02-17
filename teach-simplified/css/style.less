@@ -15,6 +15,7 @@
 
 h1 {
   margin: 0 0 5px 0;
+  transition: all linear .2s .2s;
 }
 
 aside .image {
@@ -577,11 +578,6 @@ figure img {
 // }
 //
 
-
-
-
-
-
 article section {
   > ul, ol {
     padding-left: 22px;
@@ -593,3 +589,60 @@ article section {
     }
   }
 }
+
+// Creates fancy number elements for the Steps-to-Complete list
+
+section[id*=step], section[id*=overview] {
+  transition: opacity .2s ease-out;
+}
+
+
+nav a {
+  padding-left: 60px;
+  position: relative;
+  // line-height: 24px;
+}
+
+nav a:before {
+  position: absolute;
+  left: 15px;
+  line-height: 26px;
+  padding: 3px 0 1px 0;
+  width: 30px;
+  text-align: center;
+  border-radius: 50%;
+  top: ~"calc(50% - 18px)";
+
+}
+
+nav a:not(:first-child):before {
+  border: solid 2px rgba(255,255,255,.25);
+  color: rgba(255,255,255,.4);
+}
+
+nav a:hover {
+  color: rgba(255,255,255,.7);
+}
+
+nav a:not(:first-child).selected:before {
+  color: rgba(255,255,255,.7);
+  border: solid 2px rgba(255,255,255,.5);
+  color: @primary;
+  background: white;
+}
+
+nav a:nth-child(1):before {
+  content: "\f024";
+  font-family: "FontAwesome";
+  top: ~"calc(50% - 17px)";
+  left: 18px;
+}
+
+.make-steps(@counter) when (@counter > 1) {
+  .make-steps((@counter - 1));
+
+  nav a:nth-child(@{counter}):before {
+    content: ~"'"@counter - 1~"'";
+  }
+}
+.make-steps(10);

@@ -70,19 +70,27 @@ $(document).ready(function(){
 function navigate(hash){
 
   //Hide all the steps & introduction
-  $("section#overview").hide();
-  $("section[id^=step]").hide();
+  $("section#overview,section[id^=step]").css("opacity", 0);
+  setTimeout(function(){
+    $("section#overview,section[id^=step]").hide();
+  },200)
+
 
   //Figure out what to show
   if(hash.length > 0 && $("section" + hash).length > 0) {
-    $("section"+hash).show();
     $("body").attr("mode",hash);
     navEl.find(".selected").removeClass("selected");
     navEl.find("a[href="+hash+"]").addClass("selected");
   } else {
-    $("section#overview").show();
     hash = "#overview";
   }
+
+  setTimeout(function(){
+    $("section"+hash).show();
+    $("section"+hash).css("opacity",0);
+    $("section"+hash).width(    $("section"+hash).width());
+    $("section"+hash).css("opacity",1);
+  },200)
 
   if(window.history.replaceState) {
     window.history.replaceState(null, null, hash);
