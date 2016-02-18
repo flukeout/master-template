@@ -155,7 +155,7 @@ $(document).ready(function(){
   });
 
   $("nav").on("click","a",function(){
-    $(".selected").removeClass("selected");
+    $("nav .selected").removeClass("selected");
     $(this).addClass("selected");
     var section = $(this).attr("href");
 
