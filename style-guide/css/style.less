@@ -450,7 +450,6 @@ aside nav {
     }
   }
 
-
   textarea {
     width: 100%;
     background: transparent;
@@ -471,14 +470,28 @@ aside nav {
 .share-popup {
   position: fixed;
   top: 20px;
-  background: rgba(255,255,255,.95);
+  // background: rgba(255,255,255,.95);
+  background: rgba(0,0,0,.9);
+  color: white;
   display: none;
   left: 20px;
   right: 20px;
   z-index: 99999999999;
   text-align: center;
   padding: 20px;
+  border: solid 5px rgba(0,0,0,.9);
   box-shadow: 0px 3px 5px rgba(0,0,0,.2);
+
+  animation: pop .2s ease-out;
+  a {
+    color:#79ACEA;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+      background: transparent;
+    }
+  }
 }
 
 
@@ -576,6 +589,7 @@ body:not(.editor-closed){
     font-size: 20px;
     transition: opacity .2s ease-out;
 
+
     &:hover {
       text-decoration: none;
       opacity: .8;
@@ -583,4 +597,16 @@ body:not(.editor-closed){
 
   }
 
+}
+
+
+@keyframes pop {
+  0% {
+    transform:scale(.9);
+    opacity: 0;
+  }
+  55% {transform:scale(1.06);
+    opacity: 1;
+  }
+  100% {transform:scale(1);}
 }
