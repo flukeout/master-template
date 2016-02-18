@@ -19,11 +19,8 @@ $(document).ready(function(){
 
   $(".html-overlay .content").text(html);
 
-  $(".show-html").on("mouseover",function(){
-    $(".html-overlay").show();
-  });
-  $(".show-html").on("mouseout",function(){
-    $(".html-overlay").hide();
+  $(".show-html").on("click",function(){
+    $(".html-overlay").toggleClass("showing");
   });
 
 });
