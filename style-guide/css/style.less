@@ -10,7 +10,7 @@
 @primary-darkest: darken(@primary, 10%);     // Selected state in nav
 @primary-dark:  darken(@primary, 5%);        // Hover state in nav
 @primary-light: lighten(@primary, 35%);      // Borders & horizontal rules
-@primary-lightest: lighten(@primary, 35%);   // Background for Example
+@primary-lightest: lighten(@primary, 45%);   // Background for Example
 
 // Layout
 @aside-width: 230px;          // Width of the navigation side bar
@@ -118,12 +118,20 @@ a {
 // The main content wrapper
 
 article {
-  max-width: 750px;
-  min-width: 500px;
+  width: ~"calc(100% - 750px)";
   position: relative;
   padding: 20px 0 40px @aside-width + 65;
   margin-right: 55px;
   z-index: 1;
+}
+
+
+.editor-closed {
+  article {
+    width: auto;
+    max-width: 750px;
+
+  }
 }
 
 .logo {
@@ -423,6 +431,14 @@ aside .image {
   background-size: contain;
 }
 
+hr {
+  height: 2px;
+  border: none;
+  width: 40%;
+  margin-left: 30%;
+  margin: 30px 0;
+}
+
 aside nav {
   margin-top: 25px;
 }
@@ -448,6 +464,7 @@ article {
   z-index: 99999999;
   overflow: visible;
   transition: transform .3s ease-out;
+  background: rgba(0,0,0,.9);
 
   .toggle {
     color: rgba(0,0,0,.3);
@@ -463,35 +480,12 @@ article {
     }
   }
 
-  &.closed {
-    transform: translateX(400px);
-
-    .toggle {
-      transform: rotate(180deg);
-    }
-  }
-
-  .share-css {
-    position: fixed;
-    bottom: 15px;
-    right: 20px;
-    color: orange;
-    cursor: pointer;
-    opacity: .5;
-
-    &:hover {
-      background: transparent;
-      text-decoration: none;
-      opacity: .8;
-    }
-  }
 
   textarea {
-    background: rgba(0,0,0,.9);
     width: 100%;
-
+    background: transparent;
     height: 100%;
-    padding: 15px;
+    padding: 5px 15px;
     font-size: 13px;
     color: rgba(255,255,255,.7);
     font-family: monospace;
@@ -517,27 +511,41 @@ article {
   box-shadow: 0px 3px 5px rgba(0,0,0,.2);
 }
 
-h1,h2,h3,h4,h5,h6,p,li,ul,ol,article a,strong,span,img,blockquote {
-  transition: outline .2s ease-out;
-  outline: solid 2px rgba(0,0,0,0);
 
-  &:hover  {
-    outline: solid 2px rgba(0,0,0,.4);
-    > .helper {
-      opacity: 1;
+.editor-closed {
+  .editor {
+    transform: translateX(400px);
+
+    .toggle {
+      transform: rotate(180deg);
+    }
+  }
+
+}
+
+body:not(.editor-closed){
+
+  h1,h2,h3,h4,h5,h6,p,li,ul,ol,article a,em,strong,span,img,blockquote,hr {
+    transition: outline .2s ease-out;
+    outline: solid 2px rgba(0,0,0,0);
+
+    &:hover  {
+      outline: solid 2px rgba(0,0,0,.3);
+      > .helper {
+        opacity: 1;
+      }
     }
   }
 }
 
 .helper {
   position: absolute;
-  top: -16px;
+  top: -20px;
   transition: all ease-out .2s;
   left: -16px;
   min-width: 25px;
   text-align: center;
   border-radius: 2px;
-
   font-family: monospace;
   padding: 5px;
   background: rgba(0,0,0,.9);
@@ -545,13 +553,12 @@ h1,h2,h3,h4,h5,h6,p,li,ul,ol,article a,strong,span,img,blockquote {
   font-size: 18px;
   line-height: 22px;
   font-style: normal;
-
   opacity: 0;
 }
 
 .color-options {
   display: flex;
-  background: rgba(0,0,0,.9);
+
   padding: 5px;
   justify-content: center;
 
@@ -576,4 +583,28 @@ h1,h2,h3,h4,h5,h6,p,li,ul,ol,article a,strong,span,img,blockquote {
 
 .primary {
   display: none;
+}
+
+.bottom-links {
+
+  position: fixed;
+  bottom: 15px;
+  right: 20px;
+  z-index: 99999999999999999;
+
+  a {
+    color: orange;
+    cursor: pointer;
+    opacity: .5;
+    text-decoration: none;
+    margin-left: 8px;
+
+    &:hover {
+      background: transparent;
+      text-decoration: none;
+      opacity: .8;
+    }
+
+  }
+
 }

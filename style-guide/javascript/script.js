@@ -37,20 +37,14 @@ function shareCSS(){
       primary : primary
   });
 
-  var documentURL = document.URL;
-  var trimIndex = documentURL.indexOf("?");
-
-  //If there's already a question mark
-  if(trimIndex > -1) {
-    documentURL = documentURL.substring(0,  trimIndex);
-  }
-
+  var documentURL = window.location.origin + window.location.pathname;
   var projectURL = documentURL + "?option=" + ref.key();
 
   $(".share-link").attr("href",projectURL).text(projectURL).show();
   $(".share-popup").show();
 
 }
+
 function start(){
     var view = getUrlParameter('option');
     if(view){
@@ -64,7 +58,6 @@ function start(){
         var primary = JSON.parse(jam[view].primary);
         $("textarea").val(less);
         $(".primary").val(primary);
-
 
         selectPrimary();
         updateCSS();
@@ -84,7 +77,6 @@ function updateCSS(){
   var lessInput = primary + textarea.val();
   var options = {};
 
-
   less.render(lessInput, options)
     .then(function(output) {
       $("style[from=editor]").remove();
@@ -93,14 +85,12 @@ function updateCSS(){
       $("head").append(jam);
     },
     function(error) {
-
+      console.log(error);
     });
-
-    // localStorage.setItem("less",JSON.stringify(lessInput));
 }
 
 function addHelpers(){
-  $("img,h1,h2,h3,h4,h5,h6,p,ul,li,ol,article a,strong,em,blockquote").each(function(index,el){
+  $("img,h1,h2,h3,h4,h5,h6,p,ul,li,ol,article a,strong,hr,em,blockquote").each(function(index,el){
     var helper = $("<div class='helper'>" + el.tagName.toLowerCase() + "</div>" );
     $(el).append(helper);
   });
@@ -134,24 +124,17 @@ $(document).ready(function(){
     updateCSS();
   });
 
-  // if(localStorage.getItem("less")){
-  //   var less = JSON.parse(localStorage.getItem("less"));
-  //   textarea.val(less);
-  // }
-
   textarea.on("keyup",function(){
     updateCSS();
   });
 
   updateCSS();
 
-  checkHash();
-
   windowHeight = $(window).height();
   docHeight = $("body").height();
 
   $(".toggle").on("click",function(){
-    $(".editor").toggleClass("closed");
+    $("body").toggleClass("editor-closed");
   });
 
   $("nav").on("click","a",function(){
@@ -235,16 +218,15 @@ function checkHash(){
   }
 }
 
-
 function getUrlParameter(sParam){
-    var sPageURL = window.location.search.substring(1);
-    var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++)
-    {
-        var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == sParam)
-        {
-            return sParameterName[1];
-        }
-    }
+  var sPageURL = window.location.search.substring(1);
+  var sURLVariables = sPageURL.split('&');
+  for (var i = 0; i < sURLVariables.length; i++)
+  {
+      var sParameterName = sURLVariables[i].split('=');
+      if (sParameterName[0] == sParam)
+      {
+          return sParameterName[1];
+      }
+  }
 }
