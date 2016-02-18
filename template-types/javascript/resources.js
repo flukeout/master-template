@@ -1,7 +1,6 @@
 $(document).ready(function(){
 
-  var html = $("body").html();
-  console.log(html);
+  var html = $(".user-content ").html();
 
   var allElements = $("body > *");
 
@@ -17,6 +16,15 @@ $(document).ready(function(){
   var header = $("h1");
 
   $("header").append(header);
+
+  $(".html-overlay .content").text(html);
+
+  $(".show-html").on("mouseover",function(){
+    $(".html-overlay").show();
+  });
+  $(".show-html").on("mouseout",function(){
+    $(".html-overlay").hide();
+  });
 
 });
 

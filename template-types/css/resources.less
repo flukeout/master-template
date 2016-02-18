@@ -87,7 +87,55 @@
          -moz-column-gap: 30px;
               column-gap: 30px;
   }
-
 }
 
 
+.show-html {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  color: black;
+  font-size: 40px;
+  opacity: .3;
+  cursor: pointer;
+  z-index: 99999999999;
+  padding: 20px;
+
+  &:hover {
+    opacity: .5;
+  }
+}
+
+.html-overlay {
+
+
+ position: fixed;
+ top: 0;
+ left: 0;
+ bottom: 0;
+ right: 0;
+ display: none;
+  background: rgba(255,255,255,.95);
+ &.showing {
+   display: block;
+ }
+
+
+ .content {
+   position: absolute;
+   font-size: 14px;
+   color: rgba(0,0,0,.8);
+
+   font-weight: 100;
+   font-family: monospace;
+   top: 30px;
+   bottom: 30px;
+   width: 750px;
+   padding: 0;
+   left: ~"calc(50% - 375px)";
+   white-space: pre;
+   text-overflow: ellipsis;
+   overflow-x: hidden;
+ }
+
+}
