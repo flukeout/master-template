@@ -1,0 +1,93 @@
+[template=resources] {
+
+  main {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    width: 750px;
+    margin: 0 auto;
+  }
+
+  header {
+    background: @primary;
+  }
+
+  article {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  main {
+    padding-bottom: 30px;
+  }
+
+  h1 {
+
+    padding: 50px 0 20px 0;
+    margin: 0 0 20px 0;
+    width: 750px;
+    margin: 0 auto;
+    color: white;
+    font-size: 2.2rem;
+    position: relative;
+  }
+
+  h2 {
+    border-bottom: solid 2px @primary-lightest;
+    font-size: 1.8rem;
+  }
+
+  h2 + ul {
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -10px;
+
+
+    li {
+      list-style-type: none;
+      flex: 1;
+      margin: 10px;
+      height: 100px;
+      display: flex;
+      align-content: stretch;
+      align-items: stretch;
+
+      &:before {
+        display: none;
+      }
+
+      a {
+        display: block;
+        padding: 10px 14px;
+        background: @primary-lightest;
+        border-radius: 2px;
+        color: @primary;
+        text-decoration: none;
+
+        flex: 1;
+
+        &:hover {
+          background: darken(@primary-lightest,5%);
+        }
+      }
+    }
+
+  }
+
+  ul {
+    padding: 0;
+      -webkit-column-count: 2;
+         -moz-column-count: 2;
+              column-count: 2;
+      -webkit-column-gap: 30px;
+         -moz-column-gap: 30px;
+              column-gap: 30px;
+  }
+
+}
+
+

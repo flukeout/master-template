@@ -1,0 +1,40 @@
+// Main colors
+@primary: #2B488E;            // Section headings and side-bar background
+
+@import "shared.less";
+@import "resources.less";
+
+// The main content wrapper
+
+article {
+  .logo {
+    left: 0px;
+    width: 155px;
+    margin-top: 20px;
+  }
+}
+
+aside .image {
+  height: 190px;
+  width: 170px;
+  margin: 22px 0 30px 27px;
+  background-image: ~"url(images/mozilla-clubs-illustration.svg)";
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+aside nav {
+  margin-top: 25px;
+}
+
+article {
+  > ul, ol {
+    padding-left: 22px;
+
+    li {
+      margin-bottom: 14px;
+      line-height: 150%;
+    }
+  }
+}
