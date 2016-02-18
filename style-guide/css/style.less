@@ -587,8 +587,7 @@ body:not(.editor-closed){
 }
 
 .bottom-links {
-
-  position: fixed;
+  position: absolute;
   bottom: 15px;
   right: 20px;
   z-index: 99999999999999999;
@@ -601,10 +600,11 @@ body:not(.editor-closed){
     text-align: center;
     border-radius: 50%;
     cursor: pointer;
-    opacity: .5;
+    opacity: .3;
     text-decoration: none;
     margin-left: 3px;
     font-size: 20px;
+    transition: opacity .2s ease-out;
 
     &:hover {
       text-decoration: none;

@@ -31,12 +31,13 @@
 
   <body>
 
+    <div class="editor">
+
     <div class="bottom-links">
       <a title="Save &amp; Share" class="share-css fa fa-share-alt"></a>
       <a class="fa fa-trash" title="Start Over" href="/style-guide/"></a>
     </div>
 
-    <div class="editor">
       <div class="toggle fa fa-chevron-right"></div>
       <div class="color-options"></div>
       <input type="text" class="primary" value="#5381B9"/>
@@ -49,11 +50,12 @@
 @link-color: #5381B9;
 @link-background: lighten(@link-color, 42%);
 
-@text-dark: rgba(0,0,0,.8);
+@text-darkest: rgba(0,0,0,.8);
+@text-dark: rgba(0,0,0,.6);
 @text-medium: rgba(0,0,0,.45);
 
 h1 {
-  color: @text-dark;
+  color: @text-darkest;
   font-size: 2rem;
   margin: 0 0 35px 0;
   line-height: 120%;
@@ -74,31 +76,30 @@ h3 {
 }
 
 h4 {
-  color: @text-dark;
-  margin: 0 0 5px 0;
+  color: @text-darkest;
   font-size: 1.25rem;
+  margin: 0 0 5px 0;
 }
 
 h5 {
-  color: @text-dark;
-  margin: 0 0 5px 0;
+  color: @text-darkest;
   font-size: 1.125rem;
-
+  margin: 0 0 5px 0;
 }
 
 h6 {
-  color: @text-dark;
+  color: @text-darkest;
   margin: 0 0 0 0;
   font-size: 1rem;
   font-weight: bold;
 }
 
 p, ul, ol {
-    margin: 0 0 30px 0;
+  color: @text-medium;
+  margin: 0 0 30px 0;
 }
 
 p, li {
-  color: @text-medium;
   line-height: 160%;
 }
 
@@ -107,7 +108,6 @@ ul, ol {
 
   li {
     margin-bottom: 6px;
-    line-height: 150%;
   }
 }
 
