@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mozilla Club Guide: Mixing Your Afterschool Program &amp; Your Mozilla Club</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,400italic,500,500italic,700' rel='stylesheet' type='text/css'>
+    <link rel="icon" type="image/ico" href="https://mozillascience.org/img/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet/less" href="css/style.less">
+
+    <script src="https://cdn.firebase.com/js/client/2.1.1/firebase.js"></script>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="javascript/script.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+      less = {
+        env: "development",
+        async: false,
+        fileAsync: false,
+        poll: 1000,
+        functions: {},
+        dumpLineNumbers: "comments",
+        relativeUrls: false,
+        rootpath: ":/a.com/"
+      };
+    </script>
+    <script src="../shared/javascript/less.js" type="text/javascript"></script>
+
+
+  </head>
+
+  <body>
+
+    <div class="editor">
+      <div class="toggle fa fa-chevron-right"></div>
+      <div class="color-options"></div>
+      <input type="text" class="primary" value="#5381B9"/>
+      <textarea>
+@primary-darkest: darken(@primary, 10%);
+@primary-dark:  darken(@primary, 5%);
+@primary-light: lighten(@primary, 35%);
+@primary-lightest: lighten(@primary, 35%);
+
+@link-color: #089970;
+@link-background: #E4F7F0;
+@text-dark: #273D44;
+
+@text-medium: rgba(0,0,0,.45);
+
+h1 {
+  color: @text-dark;
+  font-size: 2rem;
+  margin: 0 0 35px 0;
+  line-height: 120%;
+}
+
+h2 {
+  color: @primary;
+  font-size: 2rem;
+  font-style: italic;
+  margin: 30px 0 20px 0;
+}
+
+h3 {
+  color: @primary;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 20px 0 8px 0;
+}
+
+aside {
+  background: @primary;
+}
+
+h4 {
+  color: @text-dark;
+  margin: 0 0 5px 0;
+  font-size: 18px;
+}
+
+p, ul, ol {
+    margin: 0 0 30px 0;
+}
+
+p, li {
+  color: @text-medium;
+  line-height: 160%;
+}
+
+ul, ol {
+  padding: 0 0 0 22px;
+
+  li {
+    margin-bottom: 6px;
+    line-height: 150%;
+  }
+}
+
+blockquote {
+  color: @primary-dark;
+  background: @primary-lightest;
+  margin: 35px 0 40px 0;
+  padding: 20px 25px;
+}
+
+strong {
+  color: @text-dark;
+}
+
+a {
+  color: @link-color;
+
+  &:hover {
+    background: @link-background;
+  }
+}
+
+nav a {
+  &.selected, &.selected:hover {
+    background: @primary-darkest;
+  }
+
+  &:hover {
+    background: @primary-dark;
+  }
+
+  &:after {
+    background-color: @primary-darkest;
+  }
+}
+
+</textarea>
+        <a class="share-css">Share</a>
+
+    </div>
+
+    <aside>
+      <div class="image"></div>
+      <nav>
+        <a class="selected" href="#introduction">Introduction</a>
+        <a href="#activity-ideas">Activity Ideas</a>
+        <a href="#resources">Resources</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </aside>
+
+    <article id="introduction">
+      <div class="logo">
+        <a href="#" title="Mozilla Clubs Logo">
+          <img src="images/mozilla-clubs-logo.svg" />
+        </a>
+      </div>
+
+      <h1>
+        Guide: Mixing Your Afterschool Program &amp; Your Mozilla Club
+      </h1>
+
+      <p>
+        Mozilla Clubs offer an opportunity to regularly bring digital literacy skills into an afterschool
+        environment and participate in a global community of teachers and learners and <a href="#">some links</a>.  Afterschool programs are the
+        ideal setting for educators and participants to teach and learn digital literacy skills by adapting Mozilla Club
+        curriculum.
+      </p>
+
+      <ul>
+        <li><a href="#">Here's a link</a></li>
+        <li><a href="#">Here, have another</a></li>
+      </ul>
+
+      <h3>Heres'a thing</h3>
+
+      <ul>
+        <li>Connect with hands-on learning activities where afterschool educators and participants learn how to read, write, and participate on the Web, teach others, and learn together. </li>
+        <li>Empower afterschool educators with professional development opportunities that will continually bring them up to speed on the latest web literacy skills.</li>
+        <li>Combine these Web Literacy skills with current and new projects that are on and off-line.</li>
+      </ul>
+
+      <h2 id="activity-ideas">Activity Ideas</h2>
+
+      <p>
+        At your next staff meeting, share the Mozilla Clubs activities and determine how to adapt the
+        activities to your afterschool program.  The Web Literacy Basics module, which is comprised of six
+        activities, each approximately 45 minutes in length are a great way to start and is easily
+        adaptable for many age groups. Participants can try these activities together, and a takeaway
+        assignment could be to teach to their parents or other adults in their lives as part of a project.
+      </p>
+
+      <blockquote>
+        There are lots of activities, both online and offline at teach.mozilla.org/activities. Here are a few suggestions to make the most of your afterschool program/Mozilla Club mix:
+      </blockquote>
+
+      <h3>Personal Presentation Icebreakers</h3>
+
+      <p>Sit in a circle and...</p>
+
+      <ol>
+        <li>When was the first time you remember using the web?</li>
+        <li>What is one thing you would love to learn about the web?</li>
+        <li>What challenges do you face when it comes to digital use and learning?</li>
+      </ol>
+
+      <h3>Post-It Note Q&A/Discussions</h3>
+
+      <p>
+        Provide a prompt and have participants write answers/feedback on a post-it note, then
+        stick it to a wall. Facilitate discussion afterwards.
+      </p>
+
+      <ul>
+        <li>If you had to describe the web in one word, what would it be? Why?</li>
+        <li>If you were to connect the web with something you are passionate about, what would it be? (Then discuss as a group how you can do this.)</li>
+      </ul>
+
+      <h3>Lo-Fi, No-Fi Activities</h3>
+
+      <p>
+        It encourages teamwork, provides opportunity for great discussion, and can surface opportunities
+        to build a stronger sense of community within your group dynamic. These can be especially fun
+        when hosting a larger event that includes outside community members.
+      </p>
+
+      <ul>
+        <li><a href="#">Studio.code.org</a> offers many “unplugged” activities for those with no prior programming experience.</li>
+        <li><a href="#">Teach.mozilla.org</a>  offers 19 activities in this lo-fi, no-fi teaching kit.</li>
+      </ul>
+
+      <h3>Group Hack/Remix Challenges</h3>
+
+      <p>
+        When you do have connectivity, give these a try. Whatever tool or challenge you decide to use,
+        pair your participants into teams to work together to achieve a goal. Add a bit of playful
+        competition between teams by adding time restrictions, small prizes, or bragging rights.
+      </p>
+
+      <ul>
+      <li><a href="#">Thimble - Interactive Postcard Remix</a></li>
+      <li><a href="#">Create a WebMaker Project</a></li>
+      <li><a href="#">X-Ray Goggles - Hack the News activity</a></li>
+      </ul>
+
+      <h2 id="resources">Resources</h2>
+
+      <p>
+      Want even more ideas and tools for mixing your Mozilla Club and afterschool program?
+      Here are a few resources to help you dig further.
+      </p>
+
+      <ul>
+        <li><a href="#">Teach Like Mozilla - Our Values</a></li>
+        <li><a href="#">Discourse Community Forum</a></li>
+        <li>Hive NYC training program for educators and educator ideas for running activities in the school in this outcomes blogpost</li>
+      </ul>
+
+      <h2 id="contact">Contact</h2>
+
+      <ul>
+        <li>Email Mozilla’s Club expert Amira Dhalla (amira@mozillafoundation.org) with any questions about Mozilla Clubs</li>
+        <li>Tweet us anytime <a href="#">@MozTeach</a> or using <a href="#">#teachtheweb</a> or <a href="#">#MozillaClubs</a></li>
+        <li>Is your Mozilla Club doing an awesome job of retaining and growing the community? <a href="#">Share your story with us!</a></li>
+      </ul>
+
+    </article>
+
+    <div class="share-popup">
+      Your sweet styles &rarr; <a class="share-link" href="#">TESTO JAMBO</a>
+    </div>
+
+  </body>
+</html>
