@@ -10,6 +10,10 @@ function newContent(content){
 
 tinymce.init({
   setup : function(ed) {
+    ed.on('init', function(e) {
+       newContent(ed.getContent());
+    });
+
     ed.on('keyup', function(e) {
        newContent(ed.getContent());
     });
