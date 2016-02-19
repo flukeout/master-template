@@ -69,10 +69,16 @@ $(document).ready(function(){
   });
 
   $('body').on("click",function(e){
+
     var clickedpicker = $(e.target).closest(".colorpicker-wrapper").length;
-    if(clickedpicker < 1) {
+    var clickedoption = $(e.target).hasClass("option");
+    console.log(clickedpicker,clickedoption);
+
+    if(clickedpicker > 0 || clickedoption) {
+    } else {
       $(".colorpicker-wrapper").removeClass("showing");
     }
+
   });
 
   $('#colorpicker').farbtastic();
@@ -294,7 +300,6 @@ function start(){
         var documentURL = window.location.origin + window.location.pathname;
         window.location.href = documentURL;
       }
-
       initUI();
     });
   } else {
@@ -311,6 +316,7 @@ function initUI(){
 }
 
 function buildPicker(){
+  $(".color-options .option").remove();
   for(var i = 0; i < baseHexes.length; i++){
     var hex = baseHexes[i];
     var colorOption = $("<div class='option' color='"+hex+"'/>)");
