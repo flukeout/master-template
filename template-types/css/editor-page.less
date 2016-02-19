@@ -1,20 +1,28 @@
 [template=editor] {
 
+  background: black;
+
   .editor {
     width: 40%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
+    padding: 30px;
+    background: black;
+    box-sizing: border-box;
   }
 
   .output {
     width: 60%;
+    left: 40%;
     position: absolute;
     top: 0;
-    left: 40%;
-    height: 100%;
-    padding: 20px;
+    box-sizing: border-box;
+    padding: 30px 30px 30px 0;
+    background: black;
+
+    .page {
+      background: white;
+      padding: 20px;
+    }
+
   }
 
   main {
@@ -42,8 +50,8 @@
 
   h1 {
     background: @primary;
-    padding: 50px 0 20px 0;
-    margin: 0 0 20px 0;
+    padding: 50px 20px 20px 20px;
+    margin: -20px -20px 20px -20px;
 
     color: white;
     font-size: 2.2rem;

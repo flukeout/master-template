@@ -5,7 +5,7 @@ $(document).ready(function(){
 });
 
 function newContent(content){
-  $(".output").html(content);
+  $(".page").html(content);
 }
 
 tinymce.init({
