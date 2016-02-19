@@ -10,10 +10,15 @@
 
     <link rel="stylesheet/less" href="css/style.less">
 
-    <script src="https://cdn.firebase.com/js/client/2.1.1/firebase.js"></script>
 
+    <script src="https://cdn.firebase.com/js/client/2.1.1/firebase.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="javascript/script.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <script type="text/javascript" src="farbtastic/farbtastic.js"></script>
+    <link rel="stylesheet" href="farbtastic/farbtastic.css" type="text/css" />
+
     <script>
       less = {
         env: "development",
@@ -33,14 +38,24 @@
 
     <div class="editor">
 
-    <div class="bottom-links">
-      <a title="Save &amp; Share" class="share-css fa fa-share-alt"></a>
-      <a class="fa fa-trash" title="Start Over" href="/master-template/style-guide/"></a>
-    </div>
+      <div class="theme-list">
+        <h2>Pick a theme</h2>
+        <a class="dismiss fa fa-remove"></a>
+      </div>
 
-      <div class="toggle fa fa-chevron-right"></div>
+      <div class="top-ui">
+        Theme: <input type="text" value="" placeholder="Name your theme" class="theme-name" />
+        <a title="Save &amp; Share" class="share-css fa fa-cloud-upload"></a>
+        <a class="fa fa-trash delete-theme"></a>
+        <a class="fa fa-bars theme-list-toggle" href=""></a>
+
+      </div>
+        <div class="toggle fa fa-chevron-right"></div>
       <div class="color-options"></div>
-      <input type="text" class="primary" value="#5381B9"/>
+      <div class="primary-wrapper">
+        <input type="text" class="primary" value="#5381B9"/>
+        <a href="#" class="fa fa-eyedropper"></a>
+      </div>
       <textarea>
 @primary-darkest: darken(@primary, 10%);
 @primary-dark:  darken(@primary, 5%);
@@ -329,8 +344,12 @@ aside {
 
     </article>
 
+    <div class="colorpicker-wrapper">
+      <div id="colorpicker"></div>
+    </div>
+
     <div class="share-popup">
-      Your sweet styles &rarr; <a class="share-link" href="#"></a>
+      Your saved theme &rarr; <a class="share-link" href="#"></a>
     </div>
 
   </body>

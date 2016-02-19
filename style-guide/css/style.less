@@ -483,6 +483,7 @@ aside nav {
   box-shadow: 0px 3px 5px rgba(0,0,0,.2);
 
   animation: pop .2s ease-out;
+
   a {
     color:#79ACEA;
     text-decoration: none;
@@ -541,9 +542,9 @@ body:not(.editor-closed){
 
 .color-options {
   display: flex;
-
-  padding: 5px;
+  padding: 5px 5px 0 5px;
   justify-content: center;
+  min-height: 33px;
 
   .option {
     height: 25px;
@@ -553,10 +554,15 @@ body:not(.editor-closed){
     position: relative;
     opacity: .3;
     border-radius: 50%;
-    transition: opacity .15s ease-out;
+
+    animation: pop .2s ease-out;
+    transform: scale(0);
+    animation-delay: .2s;
+    animation-fill-mode: forwards;
 
     &:hover {
       opacity: .7;
+      transition: opacity .15s ease-out;
     }
 
     &.selected{
@@ -565,8 +571,43 @@ body:not(.editor-closed){
   }
 }
 
-.primary {
-  display: none;
+@keyframes pop {
+  0% { transform: scale(.8) }
+  70% { transform: scale(1.2)}
+  100% {transform: scale(1)}
+}
+
+
+.primary-wrapper {
+  padding: 5px 0;
+  .primary {
+    text-align: center;
+    width: 40%;
+    background: transparent;
+    margin-left: 60px;
+
+    border: none;
+    color: inherit;
+
+    font-family: monospace;
+    text-align: right;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      background: transparent;
+      text-decoration: none;
+    }
+  }
+
+
+
 }
 
 .bottom-links {
@@ -589,24 +630,114 @@ body:not(.editor-closed){
     font-size: 20px;
     transition: opacity .2s ease-out;
 
-
     &:hover {
       text-decoration: none;
       opacity: .8;
     }
-
   }
-
 }
 
+.colorpicker-wrapper {
+  background: white;
+  position: fixed;
+  top: 120px;
+  right: 85px;
+  padding: 20px;
+  box-shadow: 0px 4px 7px rgba(0,0,0,.3);
+  border-radius: 50%;
+  z-index:99999999999999999999;
+  display: none;
 
-@keyframes pop {
-  0% {
-    transform:scale(.9);
-    opacity: 0;
+  &.showing{
+    display: block;
   }
-  55% {transform:scale(1.06);
-    opacity: 1;
+}
+
+.theme-list {
+  padding: 10px 15px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,.9);
+  z-index: 99;
+  box-sizing: border-box;
+  display: none;
+
+  h2 {
+    color: rgba(255,255,255,.5);
+    margin: 0;
+    padding: 0;
   }
-  100% {transform:scale(1);}
+
+  .fa-remove {
+    font-size: 18px;
+    top: 0px;
+    right: 0px;
+    position: absolute;
+    color: rgba(255,255,255,.4);
+    padding: 10px 15px 12px 12px;
+    opacity: .6;
+    cursor: pointer;
+
+    &:hover {
+      background: transparent;
+      opacity: 1;
+    }
+  }
+
+  a.theme {
+    color: rgba(255,255,255,.6);
+    display: block;
+    margin: 5px 0;
+    text-decoration: none;
+    margin-right: 20px;
+
+    &:hover {
+      text-decoration: none;
+      color: rgba(255,255,255,.8);
+      background: transparent;
+    }
+  }
+}
+
+.top-ui {
+  padding: 10px 15px 5px 15px;
+  color: rgba(255,255,255,.5);
+
+  a {
+    color: white;
+    font-size: 18px;
+    opacity: .5;
+    cursor: pointer;
+    position: relative;
+    top: 1px;
+    text-decoration: none;
+    margin-right: 4px;
+
+    &.theme-list-toggle {
+      float: right;
+    }
+
+    &:hover {
+      background: transparent;
+      text-decoration: none;
+      opacity: .8;
+    }
+  }
+
+  input {
+    color: white;
+    border: none;
+    border-bottom: solid 2px rgba(255,255,255,.3);
+    padding: 0 0 0 0;
+    background: transparent;
+    font-family: "Fira Sans";
+    width: 200px;
+
+    &:focus {
+      outline: none;
+    }
+  }
 }
