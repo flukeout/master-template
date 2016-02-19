@@ -21,7 +21,7 @@ h2 {
   font-size: 1.8rem;
   margin: 0 0 10px 0;
   border-bottom: solid 2px #c9d4ef;
-  font-style: italics;
+  font-style: italic;
 }
 
 h2 + ul {
