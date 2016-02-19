@@ -245,8 +245,9 @@ function shareCSS(){
 
   if(themeName.length != 0 ) {
     themeName = themeName.toLowerCase();
-    themeName = themeName.replace(/-/g, ' ');
-    themeName = themeName.replace(/[^\w\s]/gi, '-');
+    themeName = themeName.replace(/\W/g, '-');
+    themeName = themeName.replace(/-+/g, '-');
+
     var less = JSON.stringify(textarea.val());
     var primary = JSON.stringify($(".primary").val());
 
