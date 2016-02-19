@@ -74,13 +74,13 @@ h2 + ul li a {
   display: none;
 }
 
-.boxes ul {
-  padding: 0;
+ul.boxes {
+  padding: 10px;
   list-style-type: none;
-  margin: 0;
+  margin: 15px 0 30px 0;
 }
 
-.boxes ul li {
+ul.boxes li {
   list-style-type: none;
   flex: 1;
   margin: 0 0 10px 0;
@@ -90,11 +90,11 @@ h2 + ul li a {
     background: #c9d4ef;
 }
 
-.boxes ul li:last-child {
+ul.boxes li:last-child {
   margin: 0;
 }
 
-.boxes ul li a {
+ul.boxes li a {
 
     display: block;
     padding: 10px 14px;
