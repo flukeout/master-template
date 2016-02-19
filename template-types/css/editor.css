@@ -24,7 +24,7 @@ h2 {
   font-style: italic;
 }
 
-h2 + ul {
+/*h2 + ul {
   padding: 0;
   list-style-type: none;
   margin: 10px 0 30px 0;
@@ -42,6 +42,59 @@ h2 + ul li {
 }
 
 h2 + ul li a {
+
+    display: block;
+    padding: 10px 14px;
+
+    border-radius: 2px;
+    color: #2B488E;
+    text-decoration: none;
+
+    flex: 1;
+
+}*/
+.boxes {
+  border: dashed #c9d4ef 2px;
+  padding: 10px;
+  margin: 15px 0 30px 0;
+  position: relative;
+
+}
+
+.boxes:after {
+  content: "Box List";
+  position: absolute;
+  top: -15px;
+  right: 10px;
+  padding: 3px 5px;
+  text-align: right;
+  color: white;
+  font-size: 12px;
+  background: #c9d4ef;
+  display: none;
+}
+
+.boxes ul {
+  padding: 0;
+  list-style-type: none;
+  margin: 0;
+}
+
+.boxes ul li {
+  list-style-type: none;
+  flex: 1;
+  margin: 0 0 10px 0;
+  display: flex;
+  align-content: stretch;
+  align-items: stretch;
+    background: #c9d4ef;
+}
+
+.boxes ul li:last-child {
+  margin: 0;
+}
+
+.boxes ul li a {
 
     display: block;
     padding: 10px 14px;

@@ -24,11 +24,12 @@ tinymce.init({
   },
   selector: 'textarea',
   height: 800,
-  toolbar: 'undo redo | styleselect | bold italic | link image | alignleft aligncenter alignright',
+  menubar : 'insert',
+  toolbar: 'undo redo | template | styleselect | bold italic | link image | alignleft aligncenter alignright',
   plugins: [
      'advlist autolink lists link image charmap print preview hr anchor pagebreak',
      'searchreplace wordcount visualblocks visualchars code fullscreen',
-     'insertdatetime media nonbreaking save table contextmenu directionality',
+     'template insertdatetime media nonbreaking save table contextmenu directionality',
      'emoticons template paste textcolor colorpicker textpattern imagetools'
    ],
   menu : {},
@@ -45,5 +46,9 @@ tinymce.init({
   resize: false,
   content_css: [
     'css/editor.css'
+  ],
+  templates: [
+    {title: 'Box List', description: 'Box List', url: 'templates/box-list.html'}
   ]
 });
+
