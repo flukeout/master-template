@@ -51,15 +51,17 @@
 
       </div>
         <div class="toggle fa fa-chevron-right"></div>
-      <div class="color-options"></div>
+        <div class="color-options"></div>
+        <div title="Add a new color" class="add-color fa fa-plus"></div>
       <div class="primary-wrapper">
-        <input type="text" class="primary" value="#5381B9"/>
-        <a href="#" class="fa fa-eyedropper"></a>
+        @primary: <input type="text" class="primary" value="#5381B9"/>;
+        <a title="Change this color" href="#" class="fa fa-eyedropper"></a>
+        <a title="Remove this color" href="#" class="fa fa-trash"></a>
       </div>
       <textarea>
 @primary-darkest: darken(@primary, 10%);
 @primary-dark:  darken(@primary, 5%);
-@primary-light: lighten(@primary, 35%);
+@primary-light: lighten(@primary, 15%);
 @primary-lightest: lighten(@primary, 35%);
 
 @link-color: #5381B9;
@@ -169,6 +171,10 @@ nav a {
 
 aside {
   background: @primary;
+
+  .image {
+    background-color: @primary-light;
+  }
 }
 
 
@@ -187,11 +193,6 @@ aside {
     </aside>
 
     <article id="introduction">
-      <div class="logo">
-        <a href="#" title="Mozilla Clubs Logo">
-          <img src="images/mozilla-clubs-logo.svg" />
-        </a>
-      </div>
 
       <h1>
         Guide: Mixing Your Afterschool Program

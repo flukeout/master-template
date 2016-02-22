@@ -402,13 +402,13 @@ article {
 }
 
 aside .image {
-  height: 190px;
-  width: 170px;
-  margin: 22px 0 30px 27px;
-  background-image: ~"url(images/mozilla-clubs-illustration.svg)";
-  background-position: center;
+  height: 62px;
+  background-color: @primary-light;
+  width: 100%;
+  background-image: ~"url(images/mozilla-logo.svg)";
+  background-position: 30px center;
+  background-size: 100px;
   background-repeat: no-repeat;
-  background-size: contain;
 }
 
 hr {
@@ -422,7 +422,6 @@ hr {
 aside nav {
   margin-top: 25px;
 }
-
 
 .editor {
   position: fixed;
@@ -540,9 +539,26 @@ body:not(.editor-closed){
   opacity: 0;
 }
 
+.add-color {
+  background: rgba(255,255,255,.1);
+  color: rgba(255,255,255,.5);
+  padding: 7px 7px 4px 7px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  top: 50px;
+  right: 10px;
+
+  &:hover {
+    color: rgba(255,255,255,.7);
+    background: rgba(255,255,255,.2);
+  }
+
+}
+
 .color-options {
   display: flex;
-  padding: 5px 5px 0 5px;
+  padding: 5px 40px 0 5px;
   justify-content: center;
   min-height: 33px;
 
@@ -554,6 +570,7 @@ body:not(.editor-closed){
     position: relative;
     opacity: .3;
     border-radius: 50%;
+    color: white;
 
     animation: pop .2s ease-out;
     transform: scale(0);
@@ -579,18 +596,24 @@ body:not(.editor-closed){
 
 
 .primary-wrapper {
-  padding: 5px 0;
+  padding: 5px 0 7px 0;
+  color: rgba(255,255,255,.5);
+  text-align: center;
+  font-family: monospace;
+
   .primary {
     text-align: center;
     width: 40%;
     background: transparent;
-    margin-left: 60px;
 
     border: none;
+    border-bottom: solid 2px rgba(255,255,255,.3);
     color: inherit;
+    text-align: left;
 
+    width: 90px;
     font-family: monospace;
-    text-align: right;
+
     &:focus {
       outline: none;
     }
@@ -599,14 +622,20 @@ body:not(.editor-closed){
   a {
     text-decoration: none;
     color: inherit;
+    margin:0 5px;
+    opacity: .7;
 
     &:hover {
       background: transparent;
       text-decoration: none;
+      opacity: 1;
+
     }
   }
 
-
+  input {
+    margin-right: 4px;
+  }
 
 }
 

@@ -30,7 +30,6 @@ var firebase = new Firebase("https://mofo-styles.firebaseio.com/");
 function selectPrimary(){
   $(".option.selected").removeClass("selected");
   var primary = $(".primary").val();
-  $(".primary-wrapper").css("color",primary);
   $(".option[color="+primary+"]").addClass("selected");
 }
 
@@ -61,34 +60,75 @@ function addHelpers(){
 
 var picker;
 
+function changeColor(color){
+  $(".primary").val(color);
+  $(".color-options .option").removeClass("selected");
+  $(".option[color="+color+"]").addClass("selected");
+  picker.setColor(color);
+  updateCSS();
+}
+
 $(document).ready(function(){
 
-  $("body").on("click",".primary-wrapper",function(e){
+  $(".primary-wrapper").on("click",".fa-eyedropper, input",function(e){
     $(".colorpicker-wrapper").toggleClass("showing");
     e.stopPropagation();
   });
 
-  $('body').on("click",function(e){
+  $(".primary-wrapper").on("keyup","input",function(e){
+    updateCSS();
+    picker.setColor($(this).val());
+  });
 
+  $(".primary-wrapper").on("click",".fa-trash",function(e){
+
+    if(baseHexes.length > 1) {
+      var currentColorEl = $(".color-options .option.selected");
+      var currentColor = $(".color-options .option.selected").attr("color");
+      var index = baseHexes.indexOf(currentColor)
+      if (index > -1) {
+        baseHexes.splice(index, 1);
+      }
+      currentColorEl.remove();
+      if(index > 0) {
+        changeColor(baseHexes[index - 1]);
+      } else {
+        changeColor(baseHexes[index + 1]);
+      }
+    }
+  });
+
+  $(".add-color").on("click",function(e){
+    var newColor = "";
+    while(newColor.length != 7) {
+      newColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+    }
+    baseHexes.push(newColor);
+    buildPicker();
+    changeColor(newColor);
+    $(".colorpicker-wrapper").addClass("showing");
+    e.stopPropagation();
+  });
+
+  $('body').on("click",function(e){
     var clickedpicker = $(e.target).closest(".colorpicker-wrapper").length;
     var clickedoption = $(e.target).hasClass("option");
-    console.log(clickedpicker,clickedoption);
-
-    if(clickedpicker > 0 || clickedoption) {
+    var clickedPlus = $(e.target).hasClass("add-color");
+    if(clickedpicker > 0 || clickedoption || clickedPlus) {
     } else {
       $(".colorpicker-wrapper").removeClass("showing");
     }
-
   });
 
   $('#colorpicker').farbtastic();
 
   picker = $.farbtastic('#colorpicker');
+
   picker.linkTo(function(color){
     $(".primary").attr("value",color).val(color).text(color);
     var index = $(".color-options .selected").index();
     baseHexes[index] = color;
-    $(".primary-wrapper").css("color",color);
+    // $(".primary-wrapper").css("color",color);
     $(".color-options .selected").css("background",color);
     updateCSS();
   });
@@ -113,11 +153,7 @@ $(document).ready(function(){
 
   $(".color-options").on("click",".option",function(){
     var color = $(this).attr("color")
-    $(".primary").val(color);
-    $(".color-options .option").removeClass("selected");
-    $(this).addClass("selected");
-    picker.setColor(color);
-    updateCSS();
+    changeColor(color);
   });
 
 
@@ -228,7 +264,6 @@ function getUrlParameter(sParam){
 
 
 function deleteTheme(){
-  console.log("deleteTheme");
   var themeName = $(".theme-name").val();
   if(themeName.length != 0 ) {
     var themeRef = new Firebase("https://mofo-styles.firebaseio.com/" + themeName);
@@ -317,12 +352,24 @@ function initUI(){
 }
 
 function buildPicker(){
+  var hasColors = false;
+
+  if($(".color-options .option").length > 0) {
+    hasColors = true;
+  }
+
   $(".color-options .option").remove();
   for(var i = 0; i < baseHexes.length; i++){
     var hex = baseHexes[i];
     var colorOption = $("<div class='option' color='"+hex+"'/>)");
     colorOption.css("background",hex);
-    colorOption.css("animation-delay",.05 * i + "s");
+
+    if(hasColors) {
+
+    } else {
+
+    }
+
     $(".color-options").append(colorOption);
   }
 }
