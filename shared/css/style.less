@@ -1,3 +1,38 @@
+
+// Side-bar with navigation
+aside {
+  z-index: 2;
+  width: @aside-width;
+  position: fixed;
+  top: 0;
+
+  &:before {
+    background: @primary;
+    content: "";
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: @aside-width;
+    z-index: 1;
+  }
+
+  .image {
+    position: relative;
+    height: 190px;
+    width: 170px;
+    margin: 22px 0 30px 27px;
+    background-image: ~"url(../template-assets/images/mozilla-clubs-illustration.svg)";
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 2;
+
+    img {
+      width: ~"calc(100% - 20px)";
+    }
+  }
+}
+
 // Colors, based on the primary
 @primary-darkest: darken(@primary, 10%);     // Selected state in nav
 @primary-dark:  darken(@primary, 5%);        // Hover state in nav

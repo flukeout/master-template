@@ -8,6 +8,7 @@ var articleSections = $();
 var autoscrolling = false;
 var docHeight, windowHeight, scrollingTimeout;
 var scrollSpeed = 500;  // Time (in ms) it takes to scroll to a new section when using the nav
+var lastScroll = 0;
 
 $(document).ready(function(){
 
@@ -59,9 +60,64 @@ $(document).ready(function(){
     }
   });
 
-  checkHash();
+  $(window).on("resize",function(){
+    checkLayout();
+  });
 
+  checkHash();
+  checkLayout();
+  positionNav();
 });
+
+// Hides the sidebar image if there isn't a lot of room.
+
+function checkLayout(){
+  var windowHeight = $(window).height();
+  var asideHeight = $("nav").height() + $("aside .image").height() + 55;
+  if(asideHeight > windowHeight){
+    $(".image").hide();
+  } else {
+    $(".image").show();
+    $("aside").css("top",0);
+  }
+}
+
+function positionNav(){
+  console.log("positionNav");
+  var maxOffset = $("aside").outerHeight() - $(window).height();
+
+  console.log($("aside").outerHeight(),$(window).height());
+
+  var scrollDelta = $(window).scrollTop() - lastScroll;
+  lastScroll = $(window).scrollTop();
+  var asideTop = parseInt($("aside").css("top"));
+
+  if(maxOffset > 0) {
+    if(scrollDelta > 0) {
+      //scrolling down
+      var jam = $(window).height() - asideTop - $("aside").height();
+      if(jam < 0) {
+        $("aside").css("top", asideTop - scrollDelta);
+      }
+    } else {
+      //Scrolling up
+      if(asideTop < 0) {
+        $("aside").css("top", asideTop - scrollDelta);
+      }
+    }
+    if(asideTop > 0) {
+      asideTop = 0;
+      $("aside").css("top", 0);
+    }
+    if(Math.abs(asideTop) > maxOffset){
+      $("aside").css("top", -1 * maxOffset);
+    }
+  }
+
+
+
+}
+
 
 // Updates the nav depending on what part of the article a user scrolls to.
 
@@ -82,6 +138,8 @@ function scroll(){
     var id = $(last).attr('id');
     selectSection(id);
   }
+
+  positionNav();
 }
 
 function selectSection(id){
