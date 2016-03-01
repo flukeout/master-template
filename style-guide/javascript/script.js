@@ -128,8 +128,8 @@ $(document).ready(function(){
     $(".primary").attr("value",color).val(color).text(color);
     var index = $(".color-options .selected").index();
     baseHexes[index] = color;
-    // $(".primary-wrapper").css("color",color);
     $(".color-options .selected").css("background",color);
+    $(".color-options .selected").attr("color",color);
     updateCSS();
   });
 
