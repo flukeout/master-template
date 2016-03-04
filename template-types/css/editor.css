@@ -106,3 +106,25 @@ ul.boxes li a {
     flex: 1;
 
 }
+
+.etherpad {
+/*  background: white;*/
+  padding: 5px 5px 3px 5px;
+  border: solid 10px #eee;
+  border-width: 10px 10px 10px 40px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.etherpad:after {
+  content: "";
+  position: absolute;
+  background-image: url(../images/etherpad-logo.png);
+  background-size: 30px;
+  background-position: center;
+  top: 5px;
+  left: -30px;
+  background-repeat: no-repeat;
+  height: 22px;
+  width: 22px;
+}
